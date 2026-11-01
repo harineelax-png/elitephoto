@@ -1,0 +1,66 @@
+@'
+# ---- Composer / PHP ----
+/vendor
+
+# ---- Node / npm ----
+/node_modules
+/public/build
+/public/hot
+
+# ---- Environment ----
+.env
+.env.*
+!.env.example
+
+# ---- Storage & uploads ----
+/storage/*.key
+/storage/logs/*.log
+/storage/app/public/batch_generated
+/storage/app/public/frame_images
+/storage/app/public/frame_templates
+/storage/app/public/generated
+/storage/app/public/plans
+/storage/app/public/sample_photos
+/storage/app/public/temp_previews
+/storage/app/public/test_slots
+/storage/app/public/test_calendar_full.jpg
+/storage/app/public/test_calendar_render.jpg
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/framework/cache/*
+/public/storage
+
+# ---- Bootstrap cache ----
+/bootstrap/cache/*.php
+
+# ---- PHPUnit ----
+.phpunit.result.cache
+
+# ---- SQLite & SQL dumps ----
+/database/database.sqlite
+*.sql
+!/database/migrations/*.sql
+
+# ---- Cloudflare Wrangler ----
+/.wrangler
+
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# ---- IDE / OS ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ---- Generated output ----
+/output
+npm-debug.log
+yarn-error.log
+'@ | Set-Content -Path ".gitignore" -Encoding ASCII

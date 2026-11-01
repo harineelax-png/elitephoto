@@ -1,0 +1,8 @@
+name = "image-framer-worker"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "image_framer"
+database_id = "1b1e4583-f480-48a6-a7bd-a5f4a62c1a59"   # ← paste YOUR uuid here
