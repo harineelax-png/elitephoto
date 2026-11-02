@@ -8,6 +8,26 @@ return new class extends Migration
 {
     public function up(): void
     {
+        // 0. Create frames table FIRST so foreign keys don't fail
+        if (!Schema::hasTable('frames')) {
+            Schema::create('frames', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->decimal('price', 10, 2)->nullable();
+                $table->string('category', 100)->default('General');
+                $table->text('description')->nullable();
+                $table->string('template_path')->nullable();
+                $table->integer('template_width')->nullable();
+                $table->integer('template_height')->nullable();
+                $table->json('slot_positions')->nullable();
+                $table->integer('slot_width')->nullable();
+                $table->integer('slot_height')->nullable();
+                $table->boolean('is_uniform_slots')->default(false);
+                $table->boolean('is_active')->default(true);
+                $table->timestamps();
+            });
+        }
+
         // 1. Update frames table if needed
         if (Schema::hasTable('frames')) {
             Schema::table('frames', function (Blueprint $table) {
