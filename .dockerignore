@@ -1,0 +1,4 @@
+.env
+.env.*
+bootstrap/cache/*.php
+node_modules
