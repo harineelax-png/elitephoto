@@ -155,7 +155,8 @@ Route::post('userauth/logout', function () {
 */
 Route::get('/run-migrations', function () {
     try {
-        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        // Using migrate:fresh to drop all tables and start clean
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
         return '<h1>Database migrated successfully!</h1><pre>' . \Illuminate\Support\Facades\Artisan::output() . '</pre>';
     } catch (\Exception $e) {
         return '<h1>Migration failed:</h1><pre>' . $e->getMessage() . '</pre>';
