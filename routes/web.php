@@ -147,3 +147,17 @@ Route::post('userauth/logout', function () {
     request()->session()->regenerateToken();
     return redirect('/');
 })->name('userauth.logout');
+
+/*
+|--------------------------------------------------------------------------
+| Temporary Migration Route (Remove this after running successfully)
+|--------------------------------------------------------------------------
+*/
+Route::get('/run-migrations', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        return '<h1>Database migrated successfully!</h1><pre>' . \Illuminate\Support\Facades\Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return '<h1>Migration failed:</h1><pre>' . $e->getMessage() . '</pre>';
+    }
+});
